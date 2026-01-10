@@ -1,411 +1,401 @@
-/* RESET */
+/* =========================
+   VARIABLES & RESET
+   ========================= */
+:root {
+  --primary-red: #ce2829;
+  --primary-yellow: #fdc913;
+  --secondary-yellow: #fcbf49;
+  --dark-bg: #292929;
+  --light-bg: #fce6d3;
+
+  --text-dark: #292929;
+  --text-gray: #555;
+
+  --font-main: "Barlow", sans-serif;
+  --font-logo: "Londrina Solid", cursive;
+  --font-hand: "Satisfy", cursive;
+  --font-condensed: "Roboto Condensed", sans-serif;
+  --font-title: "Quicksand", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  overflow-x: hidden;
+html {
+  background: #1a1a1a;
+  height: 100%;
 }
 
 body {
-  font-family: "Barlow", sans-serif;
+  font-family: var(--font-main);
   background: #fff;
+  color: var(--text-dark);
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
-/* HERO */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* =========================
+   COMMON
+   ========================= */
+.logo {
+  font-family: var(--font-logo);
+  font-size: 50px;
+  line-height: 1;
+  color: #fff;
+}
+
+/* =========================
+   HERO
+   ========================= */
 .hero {
-  width: 100vw;
-  height: 100vh;
   position: relative;
-  background: url("/assets/iteration-1/home-banner.png") center / cover no-repeat;
+  height: 100vh;
+  background: var(--primary-red)
+    url("/assets/iteration-1/home-banner.png") center bottom / cover no-repeat;
 }
 
-/* LOGO */
-.text-logo {
+.hero .logo {
   position: absolute;
-  top: 106px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: "Londrina Solid", cursive;
-  font-size: 50px;
-  line-height: 50px;
-  color: #fff;
   z-index: 3;
 }
 
-/* HERO CONTENT */
 .hero-content {
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: 260px;
+  padding-top: 180px;
   text-align: center;
-  z-index: 2;
 }
 
 .subtitle {
-  font-family: "Satisfy", cursive;
+  font-family: var(--font-hand);
   font-size: 32px;
-  line-height: 44px;
-  color: #fdc913;
-  margin-bottom: 8px;
+  color: var(--primary-yellow);
 }
 
-/* HERO TITLE */
 .hero-title {
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 64px;
+  font-family: var(--font-condensed);
+  font-size: 72px;
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1;
   color: #fff;
-  margin-bottom: 32px;
+  margin: 20px 0 40px;
 }
 
-.hero-title .line {
-  display: block;
-}
-
-.hero-title span {
-  margin: 0 4px;
-}
-
-/* BUTTON */
 .hero-button {
-  background: #fcbf49;
-  border: none;
-  padding: 16px 48px;
+  background: var(--secondary-yellow);
+  padding: 16px 50px;
   border-radius: 999px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  cursor: pointer;
+  transition: 0.2s;
 }
 
-/* CATEGORIES */
+.hero-button:hover {
+  transform: scale(1.05);
+  background: var(--primary-yellow);
+}
+
+/* =========================
+   CATEGORIES
+   ========================= */
 .categories {
   display: flex;
   justify-content: center;
-  gap: 32px;
-  padding: 40px 20px;
-  flex-wrap: wrap;
+  gap: 40px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,.05);
 }
 
 .category {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 14px;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 50px;
   font-weight: 600;
-  color: #333;
+  cursor: pointer;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-
-  .text-logo {
-    font-size: 28px;
-    line-height: 28px;
-    top: 48px;
-    white-space: nowrap;
-  }
-
-  .hero-content {
-    padding-top: 120px;
-  }
-
-  .subtitle,
-  .categories {
-    display: none;
-  }
-
-  .hero-title {
-    font-size: 50px;
-  }
-
-  .hero-title .line {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .hero-title span {
-    margin: 0;
-  }
+.category img {
+  width: 30px;
 }
-/* --- KAMPANYALAR (GRID) --- */
+
+/* =========================
+   CAMPAIGNS
+   ========================= */
 .campaigns-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* Desktop: 2 sütun */
-  gap: 16px;
-  max-width: 1000px;
-  margin: 40px auto;
+  max-width: 1100px;
+  margin: 50px auto;
   padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
 .card {
   position: relative;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   color: #fff;
-  min-height: 250px;
 }
 
-/* Sol taraftaki büyük kart 2 satır kaplasın */
 .large-card {
-  grid-row: span 2; 
-  background-color: #ce2829; /* Resim yüklenmezse görünsün */
+  grid-row: span 2;
+  background: var(--primary-red);
+  min-height: 500px;
 }
 
 .small-card {
-  height: 250px;
+  height: 240px;
 }
 
-.dark-bg { background-color: #292929; }
-.red-bg { background-color: #fce6d3; } /* Tasarımdaki bej/krem renk */
+.dark-bg { background: var(--dark-bg); }
+.red-bg { background: var(--light-bg); }
 
-/* Kart İçerikleri */
 .card-content {
   position: absolute;
   top: 40px;
   left: 40px;
+  width: 55%;
   z-index: 2;
-  width: 60%;
 }
 
 .bg-img {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  inset: 0;
+  width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 1;
+  transition: .4s;
+}
+
+.card:hover .bg-img {
+  transform: scale(1.05);
 }
 
 .card-title {
-  font-family: "Quicksand", sans-serif; /* Veya Barlow */
-  font-size: 40px;
+  font-family: var(--font-title);
+  font-size: 48px;
   font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 10px;
+}
+
+.small-card .card-title {
+  font-size: 32px;
 }
 
 .card-desc {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-/* Kurye kartı için siyah yazı */
-.red-bg .card-title, .red-bg .card-desc {
-  color: #ce2829;
-}
-.red-bg .highlight {
-  color: #ce2829;
+  font-size: 18px;
+  margin: 15px 0 25px;
 }
 
 .card-btn {
-  padding: 10px 24px;
+  padding: 12px 28px;
   border-radius: 50px;
-  border: none;
   background: #fff;
-  color: #ce2829;
-  font-weight: bold;
-  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--primary-red);
 }
 
-/* --- MENÜ BAŞLIKLARI --- */
+/* =========================
+   MENU & FOOD
+   ========================= */
 .menu-header {
   text-align: center;
   margin: 60px 0 40px;
 }
 
 .cursive-subtitle {
-  font-family: "Satisfy", cursive;
-  color: #ce2829;
-  font-size: 24px;
+  font-family: var(--font-hand);
+  color: var(--primary-red);
+  font-size: 30px;
 }
 
 .menu-title {
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 36px;
-  color: #292929;
-  margin-bottom: 30px;
+  font-family: var(--font-condensed);
+  font-size: 42px;
+  font-weight: 700;
+  margin: 10px 0 40px;
 }
 
 .menu-nav {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   flex-wrap: wrap;
 }
 
 .nav-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
+  gap: 10px;
+  padding: 14px 28px;
   border-radius: 50px;
   border: 1px solid #dedede;
-  background: #fff;
-  cursor: pointer;
-  font-family: "Barlow", sans-serif;
-  font-weight: 500;
-  transition: 0.3s;
+  font-weight: 600;
 }
 
-.nav-btn:hover, .nav-btn.active {
-  background: #292929;
+.nav-btn:hover,
+.nav-btn.active {
+  background: var(--dark-bg);
   color: #fff;
-  border-color: #292929;
-}
-.nav-btn:hover img, .nav-btn.active img {
-  filter: brightness(0) invert(1); /* İkonu beyaza çevirir */
 }
 
-/* --- YEMEK GRID --- */
 .food-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 Yan yana */
-  gap: 30px;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto 80px;
   padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 30px;
 }
 
 .food-card {
   text-align: center;
-  background: #fff;
-  padding: 20px;
-}
-
-.food-card img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
 }
 
 .food-card h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
+  margin: 15px 0;
+  font-size: 20px;
 }
 
 .food-info {
   display: flex;
   justify-content: space-between;
-  width: 80%;
-  margin: 0 auto;
   font-weight: 600;
-  color: #555;
-}
-.food-info .price {
-  color: #292929;
-  font-weight: 700;
+  color: var(--text-gray);
 }
 
-/* --- FOOTER --- */
+.price {
+  color: var(--text-dark);
+  font-weight: 800;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
 footer {
   background: #1a1a1a;
   color: #fff;
-  padding-top: 60px;
+  padding-top: 70px;
 }
 
 .footer-content {
-  display: flex;
-  justify-content: space-between;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1100px;
+  margin: auto;
   padding: 0 20px 60px;
+  display: flex;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
-.footer-col {
-  flex: 1;
-  min-width: 250px;
-  margin-bottom: 30px;
-}
-
 .footer-logo {
-  position: static; /* Hero'daki absolute'u ezmek için */
-  transform: none;
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.footer-col address p {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-  font-style: normal;
-  font-size: 14px;
-}
-
-.footer-col h4 {
-  font-size: 20px;
+  font-size: 48px;
   margin-bottom: 25px;
 }
 
 .footer-col ul {
   list-style: none;
 }
-.footer-col ul li {
-  margin-bottom: 10px;
-  font-size: 14px;
-}
 
 .insta-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-.insta-grid img {
-  width: 100%;
-  aspect-ratio: 1/1; /* Kare olması için */
-  object-fit: cover;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
 }
 
 .copyright {
-  border-top: 1px solid #444;
-  padding: 20px;
+  border-top: 1px solid #333;
+  padding: 25px;
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
+  color: #888;
 }
 
-/* --- RESPONSIVE (MOBİL) DÜZENLEMELER --- */
+/* =========================
+   MOBILE
+   ========================= */
 @media (max-width: 768px) {
-  /* Kampanya kartlarını tek sütuna düşür */
-  .campaigns-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .large-card {
-    grid-row: auto; /* span 2 özelliğini iptal et */
+
+  .hero {
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
   }
 
-  /* Menü butonlarını kaydırılabilir yap (scroll) */
-  .menu-nav {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 10px; /* Scrollbar için yer */
+  .hero .logo {
+    top: 30px;
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
   }
-  
-  /* Yemek listesini tek sütuna düşür */
+
+  .hero-content {
+    justify-content: center;
+    padding-top: 0;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 56px;
+    line-height: 1.05;
+    margin: -120px 0 20px;
+  }
+
+  .hero-line {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-button {
+    padding: 14px 40px;
+    font-size: 16px;
+  }
+
+  .categories,
+  .menu-nav {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .campaigns-container,
   .food-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Footer'ı tek sütun yap */
   .footer-content {
     flex-direction: column;
     text-align: center;
   }
+
   
-  .footer-col address p {
-    justify-content: center;
-  }
 }
