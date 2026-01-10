@@ -137,3 +137,275 @@ body {
     margin: 0;
   }
 }
+/* --- KAMPANYALAR (GRID) --- */
+.campaigns-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Desktop: 2 sütun */
+  gap: 16px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #fff;
+  min-height: 250px;
+}
+
+/* Sol taraftaki büyük kart 2 satır kaplasın */
+.large-card {
+  grid-row: span 2; 
+  background-color: #ce2829; /* Resim yüklenmezse görünsün */
+}
+
+.small-card {
+  height: 250px;
+}
+
+.dark-bg { background-color: #292929; }
+.red-bg { background-color: #fce6d3; } /* Tasarımdaki bej/krem renk */
+
+/* Kart İçerikleri */
+.card-content {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  z-index: 2;
+  width: 60%;
+}
+
+.bg-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.card-title {
+  font-family: "Quicksand", sans-serif; /* Veya Barlow */
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Kurye kartı için siyah yazı */
+.red-bg .card-title, .red-bg .card-desc {
+  color: #ce2829;
+}
+.red-bg .highlight {
+  color: #ce2829;
+}
+
+.card-btn {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: none;
+  background: #fff;
+  color: #ce2829;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- MENÜ BAŞLIKLARI --- */
+.menu-header {
+  text-align: center;
+  margin: 60px 0 40px;
+}
+
+.cursive-subtitle {
+  font-family: "Satisfy", cursive;
+  color: #ce2829;
+  font-size: 24px;
+}
+
+.menu-title {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 36px;
+  color: #292929;
+  margin-bottom: 30px;
+}
+
+.menu-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid #dedede;
+  background: #fff;
+  cursor: pointer;
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-btn:hover, .nav-btn.active {
+  background: #292929;
+  color: #fff;
+  border-color: #292929;
+}
+.nav-btn:hover img, .nav-btn.active img {
+  filter: brightness(0) invert(1); /* İkonu beyaza çevirir */
+}
+
+/* --- YEMEK GRID --- */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Yan yana */
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+.food-card {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+}
+
+.food-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.food-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.food-info {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  font-weight: 600;
+  color: #555;
+}
+.food-info .price {
+  color: #292929;
+  font-weight: 700;
+}
+
+/* --- FOOTER --- */
+footer {
+  background: #1a1a1a;
+  color: #fff;
+  padding-top: 60px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+}
+
+.footer-logo {
+  position: static; /* Hero'daki absolute'u ezmek için */
+  transform: none;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.footer-col address p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.footer-col h4 {
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+.footer-col ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.insta-grid img {
+  width: 100%;
+  aspect-ratio: 1/1; /* Kare olması için */
+  object-fit: cover;
+}
+
+.copyright {
+  border-top: 1px solid #444;
+  padding: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* --- RESPONSIVE (MOBİL) DÜZENLEMELER --- */
+@media (max-width: 768px) {
+  /* Kampanya kartlarını tek sütuna düşür */
+  .campaigns-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .large-card {
+    grid-row: auto; /* span 2 özelliğini iptal et */
+  }
+
+  /* Menü butonlarını kaydırılabilir yap (scroll) */
+  .menu-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 10px; /* Scrollbar için yer */
+  }
+  
+  /* Yemek listesini tek sütuna düşür */
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer'ı tek sütun yap */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-col address p {
+    justify-content: center;
+  }
+}
